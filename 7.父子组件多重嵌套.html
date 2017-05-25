@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <father></father>
+    <!--定义模板-->
+    <template id="father">
+        <h1>我是父组件</h1>
+        {{name}}
+        <input type="text" v-model="age">
+        <child :content="age"></child>>
+    </template>
+    <template id="child">
+        <h2>我是子组件</h2>
+        {{name}}
+        <input type="text" v-model="content">
+        <grandson :flag.sync="content"></grandson>
+    </template>
+    <template id="grandson">
+        <h3>我是孙组件</h3>
+        <p>子组件与孙组件数据双向绑定</p>
+        <input type="text" v-model="flag">
+    </template>
+</div>
+
+<script src="vue.js"></script>
+<script>
+    new Vue ({
+    	el: '#app',
+        data: {
+    		name: '根模型的name属性'
+        },
+        components:{
+    		'father':{
+    			data () {
+    				return {
+    					name: '父组件的name属性',
+                        age: '999'
+                    }
+                },
+                template: '#father',
+                // 定义子组件
+                components: {
+    				'child':{
+    					data () {
+    						return {
+    							name: '子组件的name属性'
+                            }
+                        },
+                        template: '#child',
+                        props:['content'],
+                        //定义孙组件
+                        components:{
+    						'grandson':{
+    							data () {
+    								return {
+    									name: '孙组件的name属性'
+                                    }
+                                },
+                                template: '#grandson',
+                                props: ['flag']
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

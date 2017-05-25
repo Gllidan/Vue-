@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            background:yellow;
+        }
+        .border{
+            border: 1px solid #000;
+        }
+        .borderer{
+            border: 4px solid orangered;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <button @click="change(false)">切换按钮</button>
+    <ul class="box" v-bind:class="{'border':type,'borderer':temp}">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</div>
+
+<script src="vue.js"></script>
+<script>
+    new Vue ({
+    	el: '#app',
+        data: {
+    		type:true,
+            temp:false
+        },
+        methods:{
+    		change (res) {
+    			this.type = res;
+    			this.temp = !res;
+            }
+        }
+    })
+</script>
+</body>
+</html>

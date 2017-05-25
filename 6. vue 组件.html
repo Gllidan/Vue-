@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+<temp></temp>
+<temp1></temp1>
+<temp2></temp2>
+<temp3 :msg="age"></temp3>
+
+<p>组件数据传值</p>
+<temp3 :msg="age"></temp3>
+<temp3></temp3>
+<h1>组件传值实现数据双向绑定</h1>
+<input type="text" v-model="flag">
+        <!--实现数据双向绑定-->
+<temp4 :temp.sync="flag"></temp4>
+</div>
+<script src="vue.js"></script>
+<script>
+    // 定义全局组件,可以在任何一个vue作用域里面使用
+    // 创建组件
+    Vue.component('temp',{
+    	// 在vue当中,模板能不能使用 templateUrl ? 不能,在Angualr中虽然可以,但由于vue考虑了性能原因,所以不支持该操作.
+        // 为什么消耗性能? 在html中,html文件无法直接引入其他html中,想要拿到其他文件的内容,通过ajax发送请求,获取文件的内容,把文件的内容读取出来,插入到文档中,这样比较消耗性能;
+    	template: '<div>我是全局组件</div>'
+    })
+    // 挂载模板
+
+    new Vue ({
+    	el: '#app',
+        data: {
+    		name: '根模型的name属性',
+            age: '根模型的age属性',
+            flag: '测试数据双向绑定'
+        },
+        // 定义局部组件
+        // 默认情况下组件无法访问根模型的属性,每一个组件都会自动生成一个隔离作用域,如果需要调用数据,需要在声明组件的时候运用data(){ return{} }来绑定属性,methods:{} 来绑定方法
+        // 如果一定要访问根模型的属性 ,我们可以使用props:['属性名','属性名'],来指定外界可以传什么属性值进来,然后在写 组件标签的时候,添加:属性名=''
+        components:{
+    		'temp1' : {
+    			template: '<h1>我是局部组件1</h1>'
+    		},
+            'temp2' : {
+    			template: '<h1>我是局部组件2</h1>' +
+                          '<p>{{ name }}</p>',
+                data () {
+    				return {
+    					name: 'temp2中的name属性'
+                    }
+                },
+    		},
+            'temp3' : {
+    			template: '<h1>{{ name }}</h1>' +
+                          '<h1>{{ msg }}</h1>',
+                data: function () {
+                    return {
+                    	name: 'temp3组件中的name属性',
+                        // 2.0中不允许组件内部定义的属性名,与设置外界的属性传值接口一样,这样设置会报错
+                        msg: '错误,在2.0中不允许这样操作,在1.x版本则是直接调用根模型的属性值'
+                    }
+				},
+				// props,为组件设置属性传值接口,这个类似Angualr中指令的 scope{} 设置隔离作用域,并设置数据接口来进行传值
+                // 注意:数据传递为单向绑定,子组件修改数据不会影响父模型的属性
+				props:['msg']
+            },
+            'temp4' :{
+    			template: '<input type="text" v-model="temp">',
+                props: ['temp']
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--以属性的形式-->
+    <div v-red>111</div>
+    <!--带有参数的写法,灵活-->
+    <div v-color="'yellow'">121</div>
+
+    <!--以元素的形式-->
+    <git>以元素的方式渲染,是一个行内元素</git>
+</div>
+<script src="vue.js"></script>
+<script>
+    // 注意:!!!指令组件注册一定要写在new 实例之前
+    // 格式一: Vue.directive('指令名',function(){}) --- 以属性的形式渲染
+    // 在使用指令时,必须在指令前面添加 v-指令名称
+    // 在vue当中,使用自定义指令,是用来操作DOM元素的,这和angular的概念不同,它并不是用于插入自定义html标签的,vue把这块功能集合到到组件功能中,directive只用于操作DOM
+    Vue.directive('red',function () {
+    	// this.el 指调用指令的dom元素
+        this.el.style.background = 'red';
+	})
+	// 指令传参
+	Vue.directive('color',function (color) {
+		this.el.style.background = color;
+	})
+
+    // 格式二: Vue.elementDirective('元素名',{bind:fun(){});
+    // 创建的元素是一个行内元素
+    Vue.elementDirective('git',{
+    	// 绑定函数
+    	bind (){
+    		this.el.style.background = 'blue';
+        }
+    })
+
+
+    new Vue ({
+    	el: '#app'
+    })
+
+</script>
+</body>
+</html>

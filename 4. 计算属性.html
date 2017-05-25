@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<div id="app">
+    <button @click="hey(2)">e</button>
+</div>
+<script src="vue.js"></script>
+<script>
+    var temp = new Vue ({
+    	el: '#app',
+        data: {
+    		name: 'sss',
+            num: 15
+        },
+        methods: {
+    		hey (val) {
+    			this.add = this.add + val;
+            }
+        },
+        // 设置计算属性
+        computed: {
+    		add: {
+    			get () {
+                    alert(1);
+                },
+                set (val) {
+                    this.num += val ;
+                    alert(this.num);
+				}
+
+            }
+        }
+    })
+    temp.add = 12;
+
+</script>
+</body>
+</html>

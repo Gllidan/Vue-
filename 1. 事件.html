@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body id="app">
+// 判断如果点了指定按键,就执行事件,简写格式,@keydown.键位数="执行事件"
+<input type="text" @keydown.13="write($event)" v-model="type">
+<script src="vue.js"></script>
+<script>
+    new Vue ({
+        el: '#app',
+        data: {
+
+        },
+        methods: {
+        	click (res) {
+        	    alert(res);
+            },
+        	show: function (e) {
+        		// 通过事件的cancelBubble来阻止冒泡
+                e.cancelBubble = true;
+                // 阻止默认行为
+                e.preventDefault();
+			},
+            write (e) {
+//        		// 如果按了enter 弹出1
+//        		if(e.keyCode == 13){
+//        			alert(1);
+//                }
+				console.log(e.keyCode);
+			}
+        }
+    })
+</script>
+</body>
+</html>

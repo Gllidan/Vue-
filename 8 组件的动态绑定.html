@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <button @click="change('tempOne')">切换:组件1</button>
+    <br>
+    <button @click="change('tempTwo')">切换:组件2</button>
+
+    <!--组件显示视图:占位符 记得在 is前面绑定 : ,冒号的作用代表后面的赋值为一个传值变量,如果不添加则编译为属性调用-->
+    <!--在组件切换需要传入数据时,各个模板需要约定好统一数据接口,来进行传值-->
+    <component :is="type" :list="person"></component>
+
+    <!--设置插入模板-->
+    <template id="tempOne">
+        <h1 style="background: red">我是组件1</h1>
+        <ul>
+            <!--利用 v-for 遍历数据进行渲染-->
+            <li style="background: yellowgreen; width:100px; height:100px; display: block; margin: 10px;" v-for="stu in list">
+                {{stu.name}}
+            </li>
+        </ul>
+    </template>
+
+    <template id="tempTwo">
+        <h1 style="background: yellow">我是组件2</h1>
+        <ul>
+            <li style="background: blue; margin:10px;" v-for="stu in list">
+                {{stu.name}}
+            </li>
+        </ul>
+    </template>
+</div>
+<script src="vue.js"></script>
+<script>
+    new Vue ({
+    	el: '#app',
+        data: {
+    		person: [
+    		{
+    			name: '李',
+                age: 20
+            },
+            {
+                name: '张',
+                age: 22
+            },
+            {
+            	name: '翁',
+                age: 24
+            }
+            ],
+            type: 'tempOne',
+            age: 22
+        },
+        methods:{
+    	    change (value) {
+    	    	this.type = value;
+            }
+        },
+        components: {
+    		'tempOne': {
+    			template: '#tempOne',
+                props: ['list']
+            },
+            'tempTwo': {
+    			template: '#tempTwo',
+                props: ['list']
+            }
+        }
+    })
+</script>
+</body>
+</html>
