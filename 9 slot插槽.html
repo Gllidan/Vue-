@@ -5,6 +5,80 @@
     <title>Title</title>
 </head>
 <body>
+<div id="app">
+    {{ name }}
+    <orz>
+        <!--指定绑定哪个slot-->
+        <div slot="textOne">
+            <ul>
+                <li>内容一</li>
+                <li><p>我是组件标签包含的内容</p></li>
+                <li><p>我是组件标签包含的内容</p></li>
+                <li><p>我是组件标签包含的内容</p></li>
+                <li><p>我是组件标签包含的内容</p></li>
+            </ul>
+        </div>
+        <!--指定绑定slot-->
+        <div slot="textTwo">
+            <ul>
+                <li>内容二</li>
+                <li><p>我是组件标签包含的内容...</p></li>
+                <li><p>我是组件标签包含的内容...</p></li>
+                <li><p>我是组件标签包含的内容...</p></li>
+                <li><p>我是组件标签包含的内容...</p></li>
+            </ul>
+        </div>
+    </orz>
+    <template id="tempOne">
+        <!--创建slot插槽,确定插入位置,并设置name属性,告知包裹的html片段该插入哪个slot标签-->
+        <slot name="textOne"></slot>
+        <p>我是模板内容</p>
+        <p>我是模板内容</p>
+        <p>我是模板内容</p>
+        <p>我是模板内容</p>
+        <p>我是模板内容</p>
+        <p>我是模板内容</p>
+        <p>我是模板内容</p>
+        <slot name="textTwo"></slot>
+    </template>
+    <template id="tempTwo">
+        <h1>我是第二个组件</h1>
+        <p>模板内容</p>
+        <p>模板内容</p>
+        <p>模板内容</p>
+        <p>模板内容</p>
+        <slot></slot>
+        <p>模板内容</p>
+        <p>模板内容</p>
+        <!--指定匿名slot 插入位置,调用多个slot会进行复制-->
+        <slot></slot>
+    </template>
+    <!--匿名slot-->
+    <yuz>
+        <p>我是组件包含内容</p>
+        <p>我是组件包含内容</p>
+        <p>我是组件包含内容</p>
+        <p>我是组件包含内容</p>
+    </yuz>
+</div>
 
+<script src="vue.js"></script>
+<script>
+    new Vue ({
+    	el: '#app',
+        data:{
+    		name: 'vue'
+        },
+        components: {
+    		'orz': {
+    			template: '#tempOne'
+            },
+            'yuz':{
+    			template: '#tempTwo'
+            }
+        }
+    })
+
+</script>
 </body>
 </html>
