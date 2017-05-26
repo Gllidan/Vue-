@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <button @click="jsonp">sss</button>
+</div>
+<script src="vue.js"></script>
+<script src="vue-resource.js"></script>
+<script>
+    new Vue ({
+        methods:{
+			jsonp(){
+
+				var url = 'https://sug.so.360.cn/suggest';
+				var params = {
+					word: 'a'
+				};
+				this.$http.jsonp(url,params).then(function (res) {
+					console.log(res);
+				},function (err) {
+					console.log(err);
+				})
+
+
+			}
+		}
+
+    }).$mount('#app');
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--绑定属性-->
+    <input type="text" v-model="search">
+    <!--给子组件赋值-->
+    <list :flag="listData"></list>
+    <!--设置模板-->
+    <template id="temp">
+        <ul>
+            <!--遍历数组,渲染请求到的数据-->
+            <li v-for="value in flag">{{ value }}</li>
+        </ul>
+    </template>
+</div>
+</body>
+<script src="vue.js"></script>
+<script src="vue-resource.js"></script>
+<script>
+    new Vue ({
+    	data: {
+            // 设置表单绑定属性
+            search: '',
+            // 设置空数组用于传值
+            listData:[],
+            // 设置请求地址
+            url: 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',
+            // 设置接口
+            params:{
+            	wd: '',
+            },
+            // 设置jsonp请求的函数名
+            config:{
+            	jsonp: 'cb',
+            }
+        },
+        // 设置组件
+    	components: {
+    		'list': {
+    			template: '#temp',
+                // 设置传值接口
+                props: ['flag']
+            }
+        },
+		// 监听输入,每输入一个新值,发送一个数据请求
+        watch: {
+            search(newValue) {
+            	// 动态赋值
+				this.search = newValue;
+				// 设置接口
+				this.params.wd = this.search;
+				// 发送请求
+                this.$http.jsonp(this.url,this.params,this.config).then(function (res) {
+                	// 给传值数组赋值
+					this.listData = res.data.s;
+				},function (err) {
+					console.log(err);
+				})
+			}
+        }
+    }).$mount('#app');
+
+</script>
+
+
+</html>
