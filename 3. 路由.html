@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <div class="nav">
+        <ul>
+            <li><a v-link="path:'/home'">首页</a></li>
+            <li><a v-link="path:'/home'">音乐</a></li>
+            <li><a v-link="path:'/home'">歌手</a></li>
+        </ul>
+    </div>
+</div>
+
+<script src="vue.js"></script>
+<script src="vue-resource.js"></script>
+<script>
+    //根主件
+    var app = Vue.extend();
+    //创建路由对象
+    var router = new VueRouter();
+    //配置路由
+    router.map({
+    	'/home':{
+    		template:'<h1>首页</h1>'
+        },
+        '/music':{
+    	    template:'<h1>音乐</h1>'
+        },
+        '/singer':{
+    	    template:'<h1>歌手</h1>'
+        }
+    });
+    //开启路由
+    router.start(app,'#app');
+    //设置跳转
+    //设置占位符
+</script>
+</body>
+</html>

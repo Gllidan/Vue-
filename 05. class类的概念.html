@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class person{
+    	//1.构造方法
+        //特点:在创建实例时,会自动调用该方法,通常称之为初始化方法
+        //
+    	constructor(name,sex){
+    		this.name = name;
+    		this.sex = sex;
+    		this.age = 19;
+        }
+        //
+        show(){
+    		alert(this.name + this.sex + this.age);
+        }
+        //3. 静态方法: 不需要创建对象,直接使用类名调用的方法 叫静态方法;
+        static hey(){
+        	alert('hello world');
+        }
+        //4. get方法 set方法
+        get run(){
+        	return this.name;
+        }
+        set run(){
+        	alert('gogogo');
+        }
+
+    }
+    //实例化
+    var per = new person('king','男');
+    per.show();
+
+    var per2 = new person('Marry','女');
+    per2.show();
+    person.hey();
+
+    //当对象.属性时,会调用对象中的get方法
+
+</script>
+</body>
+</html>

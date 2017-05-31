@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<div id="app">
+    <button @click="say()">{{name}}</button>
+</div>
+
+<body>
+<script src="vue.js"></script>
+<script>
+    new Vue({
+    	data:{
+    		name:'king'
+        },
+        methods:{
+    		say(){
+    			alert(this.name);
+            }
+        }
+    }).$mount('#app')
+</script>
+</body>
+</html>

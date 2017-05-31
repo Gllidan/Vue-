@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //注意 let和var的区别: let不可以重复声明同一个变量民称,会报错,而var可以
+    let name = 'king';
+    let age = 20;
+    //1.拼接字符串:类似框架的插值语法
+    let res = `我叫${name}--年龄${age}`;
+    alert(res);
+
+    let list = ['1','2','3'];
+    let list2 = ['4','5','6'];
+    //2/  ...数组名称  表示展开数组
+    let resList = [...list,...list2];
+    let obj ={};
+    let obj1 = {name:'Vv',age:10};
+    let obj2 = {name:'Dd',age:14,sex:'boy'};
+
+    //3. 合并对象
+    //注意 如果后面有与前面对象一样的属性会把前面的覆盖掉
+    Object.assign(obj,obj1,obj2);
+	console.log(obj);
+
+	//4. 对象声明方法书写方式更改
+    //变量 = 参数 => {}
+
+    let fn = (v) =>{
+		console.log(v);
+	};
+    fn(age);
+
+</script>
+</body>
+</html>
