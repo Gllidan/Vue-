@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body >
+
+<div id="app">
+
+    <input type="text" v-model="name">
+    <p v-once>{{name}}</p>
+    <p>{{name | currency}}</p>
+
+    <xmg></xmg>
+    <!-- v-for 2.0开始，已经支持一个数组当中有重复的元素 -->
+    <p v-for="(value,key) in list"> {{value}} --{{key}}</p>
+
+</div>
+
+
+</body>
+
+<script src="vue.js"></script>
+<script>
+
+    var ext = {
+        template:'<h1>组件</h1>'
+    };
+
+    new Vue({
+        el:'#app',
+        data:{
+            name:10,
+            list:['css','html','js']
+        },
+        components:{
+            'xmg':ext
+        },
+        filters:{/*自定义过滤器  input 自动传入，它是管道符前面的内容*/
+            currency:function (input) {
+                return '$'+ input;
+            }
+        }
+    });
+
+</script>
+
+</html>

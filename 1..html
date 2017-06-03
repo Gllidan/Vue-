@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <p>{{name}}</p>
+    <zg></zg>
+    <p v-for="value in num">{{key}} ---{{value}}</p>
+</div>
+<script src="vue.js"></script>
+<script>
+    var ext = {
+    	template:'<h1>简化全局模板</h1>'
+    }
+    //实例
+    new Vue({
+    	el:'#app',
+        data:{
+    		name:"sss",
+            num:[1,2,3,4,5,6,7,8]
+
+        },
+        //组件
+        components:{
+    		'zg': ext
+        }
+
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<script>
+
+    class baby{
+
+        constructor(weight,sex){  //构造方法：在创建实例时，会自动调用该方法 初始化方法
+            this.weight  = weight;
+            this.sex = sex;
+            this.age = 1;
+        }
+
+        show(){
+            alert(this.weight+this.sex+this.age);
+        }
+
+        get xmg(){ /*get方法什么时候调用：*/
+            return this.age;
+        }
+
+        set xmg(val){
+            alert(val);
+        }
+
+
+        static say(){ /*静态方法：不需要创建对象，直接使用类名调用的方法 叫静态方法*/
+            alert("hello world");
+        }
+
+    }
+
+/*   var per = new baby('8','男');
+    per.show();*/
+
+    var per2 = new baby('5','女');
+    //alert(per2.xmg);//会自动调用该属性的get方法。
+    per2.xmg = 10;
+    /*baby.say();*/
+
+
+
+
+</script>
+
+<body>
+
+</body>
+</html>

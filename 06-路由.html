@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .nav{
+            width: 600px;
+            height: 60px;
+            line-height: 60px;
+            background: #000;
+            margin: 50px auto;
+            margin-bottom: 0px;
+        }
+        .nav ul {
+            display: flex;
+        }
+        .nav ul li {
+
+            flex: 1;
+            text-align: center;
+        }
+        .nav ul li a{
+            color: #fff;
+            text-decoration: none;
+        }
+        .content{
+            width: 600px;
+            margin: 0px auto;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+<div id="app">
+
+    <div class="nav">
+        <ul>
+            <li><router-link to="/home">首页</router-link></li>
+            <li><router-link to="/music">音乐</router-link></li>
+            <li> <router-link to="/singer">歌首</router-link></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <router-view></router-view>
+    </div>
+
+</div>
+
+
+</body>
+<script src="vue.js"></script>
+<script src="vue-router.js"></script>
+<script>
+
+    // 1. 定义（路由）组件。
+    const home = { template: '<div>home</div>' }
+    const music = { template: '<div>music</div>' }
+    const singer = { template: '<div>singer</div>' }
+
+    // 2.定义路由
+    const routes = [
+        { path: '/home', component: home ,children:[
+            { path: '/login', component: music }
+        ]},
+        { path: '/music', component: music },
+        { path: '/singer', component: singer },
+        { path: '/', redirect: '/home' }
+    ];
+
+    /*3. 创建 router 实例，然后传 `routes` 配置*/
+    const router = new VueRouter({
+        routes // （缩写）相当于 routes: routes
+    })
+
+    const app = new Vue({
+        router
+    }).$mount('#app')
+
+
+</script>
+
+
+</html>

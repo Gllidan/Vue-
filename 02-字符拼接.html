@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+
+    let name = "xmg";
+    let age = 10;
+    let  res = `我叫${name}--年龄${age}`;
+    alert(res);
+
+    let list = ['1','2','3'];
+    let list2 = ['4','5','6'];
+    //...数组的名称  展开数组
+    let resList = [...list,...list2];
+
+    /*对象赋值*/
+    let obj = {name:'123',age:0,address:'123'};
+    let obj1 = {name:'xmg',age:12}
+    let obj2 = {name:'gxq',age:10,address:'address'};
+    /*合并对象 如果有相同的key,后面的对象会给前面的对象，给覆盖掉。*/
+    Object.assign(obj,obj2);
+
+    console.log(obj);
+
+    let obj3  = {
+        name() {
+            alert('name');
+        }
+    }
+    obj3.name();
+
+
+
+
+
+
+
+</script>
+<body>
+
+</body>
+</html>

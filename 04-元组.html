@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+
+    function test() {
+
+        return ['10','20'];
+    }
+
+
+    let [a,b] = test();
+    console.log(a,b);
+
+
+    /*结构对象*/
+    function breakfast() {
+        return {dessert:'bra1',drink:'bra2',fruits:'bra3'}
+    }
+    /*把对象当中的属性赋值给结构*/
+    let {dessert:dessert,drink:drink,fruits:fruits} = breakfast();
+    console.log(dessert,drink,fruits);
+
+
+</script>
+<body>
+
+</body>
+</html>
