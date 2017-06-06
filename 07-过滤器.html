@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="exporter-version" content="Evernote Mac 6.3 (452832)"/><meta name="author" content="高新强"/><meta name="created" content="2017-04-09 04:53:17 +0000"/><meta name="source" content="desktop.mac"/><meta name="updated" content="2017-04-09 04:53:54 +0000"/><title>07-过滤器</title></head><body>
+<div><br/></div>
+<div style="background-color:#ffffff;color:#000000;font-family:'Menlo';font-size:12.0pt;">    <span style="color:#660e7a;font-weight:bold;">window</span>.<span style="color:#7a7a43;">onload </span>= <span style="color:#000080;font-weight:bold;">function </span>() {<br/>
+<br/>
+        <span style="color:#000080;font-weight:bold;">new </span>Vue({<br/>
+           <span style="color:#660e7a;font-weight:bold;">el</span>:<span style="color:#008000;font-weight:bold;">'body'</span>,<br/>
+            <span style="color:#660e7a;font-weight:bold;">data</span>:{<br/>
+               <span style="color:#660e7a;font-weight:bold;">dataList</span>:[<span style="color:#008000;font-weight:bold;">'width'</span>,<span style="color:#008000;font-weight:bold;">'height'</span>,<span style="color:#008000;font-weight:bold;">'background'</span>,<span style="color:#008000;font-weight:bold;">'orange'</span>],<br/>
+                <span style="color:#660e7a;font-weight:bold;">numList</span>:[<span style="color:#0000ff;">1</span>,<span style="color:#0000ff;">2</span>,<span style="color:#0000ff;">3</span>,<span style="color:#0000ff;">4</span>,<span style="color:#0000ff;">5</span>,<span style="color:#0000ff;">6</span>,<span style="color:#0000ff;">7</span>]<br/>
+            },<br/>
+            <span style="color:#660e7a;font-weight:bold;">methods</span>:{<br/>
+               <span style="color:#7a7a43;">show</span>:<span style="color:#000080;font-weight:bold;">function </span>() {<br/>
+                   <span style="color:#7a7a43;">alert</span>(<span style="color:#0000ff;">1</span>);<br/>
+               }<br/>
+            }<br/>
+        });<br/>
+<br/></div>
+<div><span style="font-size: 12pt;"><span style="font-family: Menlo;">    };</span></span></div>
+<div style="background-color:#ffffff;color:#000000;font-family:'Menlo';font-size:12.0pt;"><span style="color:#15820a;font-style:italic;">&lt;!--在vue当中使用过滤器和angular当中非常一样.通过管道符的写法--&gt;<br/></span><span style="background-color:#efefef;">&lt;</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">p</span><span style="background-color:#efefef;">&gt;</span>{{'hello' | uppercase}}<span style="background-color:#efefef;">&lt;/</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">p</span><span style="background-color:#efefef;">&gt;</span><br/>
+<br/>
+<span style="color:#15820a;font-style:italic;">&lt;!--同样它也支持连写的形式--&gt;<br/></span><span style="background-color:#efefef;">&lt;</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">p</span><span style="background-color:#efefef;">&gt;</span>{{'HELLO' | lowercase | capitalize}}<span style="background-color:#efefef;">&lt;/</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">p</span><span style="background-color:#efefef;">&gt;</span><br/>
+<br/>
+<span style="color:#15820a;font-style:italic;">&lt;!--转成货币 注意它的传形式与angular有些区别, 它不要: 直接在后面空格写上参数--&gt;<br/></span><span style="background-color:#efefef;">&lt;</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">p</span><span style="background-color:#efefef;">&gt;</span>{{12|currency '@'}}<span style="background-color:#efefef;">&lt;/</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">p</span><span style="background-color:#efefef;">&gt;</span><br/>
+<br/>
+<span style="color:#15820a;font-style:italic;">&lt;!--过滤数组 filterBy '过滤条件' --&gt;<br/></span><span style="background-color:#efefef;">&lt;</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">ul</span><span style="background-color:#efefef;">&gt;</span><br/>
+    <span style="background-color:#efefef;">&lt;</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">li </span><span style="color:#0000ff;background-color:#efefef;font-weight:bold;">v-for=</span><span style="color:#008000;background-color:#efefef;font-weight:bold;">"val in dataList | filterBy 'a' "</span><span style="background-color:#efefef;">&gt;</span>{{val}}<span style="background-color:#efefef;">&lt;/</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">li</span><span style="background-color:#efefef;">&gt;</span><br/>
+<span style="background-color:#efefef;">&lt;/</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">ul</span><span style="background-color:#efefef;">&gt;</span><br/>
+<br/>
+<span style="color:#15820a;font-style:italic;">&lt;!--过滤数组 limitBy '开始位置' --&gt;<br/></span><span style="background-color:#efefef;">&lt;</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">ul</span><span style="background-color:#efefef;">&gt;</span><br/>
+    <span style="background-color:#efefef;">&lt;</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">li </span><span style="color:#0000ff;background-color:#efefef;font-weight:bold;">v-for=</span><span style="color:#008000;background-color:#efefef;font-weight:bold;">"val in dataList | limitBy 1"</span><span style="background-color:#efefef;">&gt;</span>{{val}}<span style="background-color:#efefef;">&lt;/</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">li</span><span style="background-color:#efefef;">&gt;</span><br/>
+<span style="background-color:#efefef;">&lt;/</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">ul</span><span style="background-color:#efefef;">&gt;</span><br/>
+<br/>
+<span style="color:#15820a;font-style:italic;">&lt;!--排序 大于等于0为升序 小于为降序--&gt;<br/></span><span style="background-color:#efefef;">&lt;</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">ul</span><span style="background-color:#efefef;">&gt;</span><br/>
+    <span style="background-color:#efefef;">&lt;</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">li </span><span style="color:#0000ff;background-color:#efefef;font-weight:bold;">v-for=</span><span style="color:#008000;background-color:#efefef;font-weight:bold;">"val in numList | orderBy -1"</span><span style="background-color:#efefef;">&gt;</span>{{val}}<span style="background-color:#efefef;">&lt;/</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">li</span><span style="background-color:#efefef;">&gt;</span></div>
+<div><span style="font-size: 12pt;"><span style="font-family: Menlo;"><span style="background-color:#efefef;">&lt;/</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">ul</span><span style="background-color:#efefef;">&gt;</span></span></span></div>
+<div style="background-color:#ffffff;color:#000000;font-family:'Menlo';font-size:12.0pt;"><br/>
+<span style="color:#15820a;font-style:italic;">&lt;!--延时1秒后再去执行对应的方法--&gt;<br/></span><span style="background-color:#efefef;">&lt;</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">input </span><span style="color:#0000ff;background-color:#efefef;font-weight:bold;">type=</span><span style="color:#008000;background-color:#efefef;font-weight:bold;">"text" </span><span style="color:#0000ff;background-color:#efefef;font-weight:bold;">@keyup=</span><span style="color:#008000;background-color:#efefef;font-weight:bold;">"show | debounce 1000"</span><span style="background-color:#efefef;">&gt;&lt;/</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">input</span><span style="background-color:#efefef;">&gt;</span></div>
+<div><br/></div>
+</body></html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="exporter-version" content="Evernote Mac 6.3 (452832)"/><meta name="author" content="高新强"/><meta name="created" content="2017-04-09 04:55:32 +0000"/><meta name="source" content="desktop.mac"/><meta name="updated" content="2017-04-09 04:56:00 +0000"/><title>10-自定义键盘</title></head><body>
+<div style="background-color:#ffffff;color:#000000;font-family:'Menlo';font-size:12.0pt;">    <span style="color:#660e7a;font-weight:bold;">window</span>.<span style="color:#7a7a43;">onload </span>= <span style="color:#000080;font-weight:bold;">function </span>() {<br/>
+<br/>
+        Vue.<span style="font-style:italic;">directive</span>(<span style="color:#008000;font-weight:bold;">'on'</span>).keyCodes.<span style="color:#660e7a;font-weight:bold;">control</span>=<span style="color:#0000ff;">17</span>;<br/>
+        <span style="color:#000080;font-weight:bold;">new </span>Vue({<br/>
+            <span style="color:#660e7a;font-weight:bold;">el</span>:<span style="color:#008000;font-weight:bold;">'body'</span>,<br/>
+            <span style="color:#660e7a;font-weight:bold;">data</span>:{<br/>
+                <span style="color:#660e7a;font-weight:bold;">age</span>:<span style="color:#008000;font-weight:bold;">'19'<br/></span><span style="color:#008000;font-weight:bold;">           </span> },<br/>
+            <span style="color:#660e7a;font-weight:bold;">methods</span>:{<br/>
+                <span style="color:#7a7a43;">show</span>:<span style="color:#000080;font-weight:bold;">function </span>(ev) {<br/>
+                    <span style="color:#7a7a43;">alert</span>(ev.<span style="color:#660e7a;font-weight:bold;">keyCode</span>);<br/>
+                }<br/>
+            }<br/>
+        })<br/>
+<br/>
+    };</div>
+<div><br/></div>
+<div style="background-color:#ffffff;color:#000000;font-family:'Menlo';font-size:12.0pt;"><span style="color:#15820a;font-style:italic;">&lt;!--可以把17自定义成为ctrol键--&gt;<br/></span><span style="background-color:#efefef;">&lt;</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">input </span><span style="color:#0000ff;background-color:#efefef;font-weight:bold;">type=</span><span style="color:#008000;background-color:#efefef;font-weight:bold;">"text" </span><span style="color:#0000ff;background-color:#efefef;font-weight:bold;">v-model=</span><span style="color:#008000;background-color:#efefef;font-weight:bold;">"age" </span><span style="color:#0000ff;background-color:#efefef;font-weight:bold;">@keydown.control=</span><span style="color:#008000;background-color:#efefef;font-weight:bold;">"show"</span><span style="background-color:#efefef;">&gt;</span><br/></div>
+</body></html>

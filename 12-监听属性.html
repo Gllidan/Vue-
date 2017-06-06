@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="exporter-version" content="Evernote Mac 6.3 (452832)"/><meta name="author" content="高新强"/><meta name="created" content="2017-04-09 04:57:13 +0000"/><meta name="source" content="desktop.mac"/><meta name="updated" content="2017-04-09 04:57:28 +0000"/><title>12-监听属性</title></head><body>
+<div>
+<div style="background-color:#ffffff;color:#000000;font-family:'Menlo';font-size:12.0pt;"><span style="color:#660e7a;font-weight:bold;">window</span>.<span style="color:#7a7a43;">onload</span>=<span style="color:#000080;font-weight:bold;">function</span>(){<br/>
+    <span style="color:#000080;font-weight:bold;">var </span><span style="color:#458383;">vm </span>= <span style="color:#000080;font-weight:bold;">new </span>Vue({<br/>
+        <span style="color:#660e7a;font-weight:bold;">el</span>:<span style="color:#008000;font-weight:bold;">'body'</span>,<br/>
+        <span style="color:#660e7a;font-weight:bold;">data</span>:{<br/>
+            <span style="color:#660e7a;font-weight:bold;">age</span>:<span style="color:#0000ff;">10</span>,<br/>
+            <span style="color:#660e7a;font-weight:bold;">res</span>:<span style="color:#008000;font-weight:bold;">''</span>,<br/>
+            <span style="color:#660e7a;font-weight:bold;">stu</span>:{<span style="color:#660e7a;font-weight:bold;">num</span>:<span style="color:#0000ff;">10</span>,<span style="color:#660e7a;font-weight:bold;">name</span>:<span style="color:#008000;font-weight:bold;">'gaowei'</span>}<br/>
+        }<br/>
+    });<br/>
+<br/>
+    <span style="color:#15820a;font-style:italic;">/*vm.$watch('age',function(){<br/></span><span style="color:#15820a;font-style:italic;">        alert('发生变化了');<br/></span><span style="color:#15820a;font-style:italic;">    });*/<br/></span><span style="color:#15820a;font-style:italic;"><br/></span><span style="color:#15820a;font-style:italic;">    /*当要监听对象的时候, 要添加是deep为true*/<br/></span><span style="color:#15820a;font-style:italic;">   </span> <span style="color:#458383;">vm</span>.<span style="color:#7a7a43;">$watch</span>(<span style="color:#008000;font-weight:bold;">'stu'</span>,<span style="color:#000080;font-weight:bold;">function</span>(){<br/>
+        <span style="color:#7a7a43;">alert</span>(<span style="color:#008000;font-weight:bold;">'发生变化了'</span>);<br/>
+    },{<span style="color:#660e7a;font-weight:bold;">deep</span>:<span style="color:#000080;font-weight:bold;">true</span>});<br/>
+<br/>
+    <span style="color:#458383;">document</span>.<span style="color:#7a7a43;">onclick</span>=<span style="color:#000080;font-weight:bold;">function</span>(){<br/>
+        <span style="color:#458383;">vm</span>.stu.<span style="color:#660e7a;font-weight:bold;">name</span>=<span style="color:#008000;font-weight:bold;">'lis'</span>;<br/>
+    };<br/>
+<br/>
+};<br/></div>
+</div>
+</body></html>

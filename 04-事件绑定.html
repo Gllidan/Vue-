@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="exporter-version" content="Evernote Mac 6.3 (452832)"/><meta name="author" content="高新强"/><meta name="created" content="2017-04-09 04:51:36 +0000"/><meta name="source" content="desktop.mac"/><meta name="updated" content="2017-04-09 04:52:08 +0000"/><title>04-事件绑定</title></head><body>
+<div><span style="font-size: 12pt;"><span style="font-family: Menlo;"><span style="background-color:#efefef;">&lt;</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">input </span><span style="color:#0000ff;background-color:#efefef;font-weight:bold;">type=</span><span style="color:#008000;background-color:#efefef;font-weight:bold;">"button" </span><span style="color:#0000ff;background-color:#efefef;font-weight:bold;">value=</span><span style="color:#008000;background-color:#efefef;font-weight:bold;">"按钮" </span><span style="color:#660e7a;background-color:#efefef;font-weight:bold;">v-on</span><span style="color:#0000ff;background-color:#efefef;font-weight:bold;">:click=</span><span style="color:#008000;background-color:#efefef;font-weight:bold;">"show()"</span><span style="background-color:#efefef;">&gt;</span></span></span></div>
+<div style="background-color:#ffffff;color:#000000;font-family:'Menlo';font-size:12.0pt;"><span style="background-color:#efefef;">&lt;</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">input </span><span style="color:#0000ff;background-color:#efefef;font-weight:bold;">type=</span><span style="color:#008000;background-color:#efefef;font-weight:bold;">"button" </span><span style="color:#0000ff;background-color:#efefef;font-weight:bold;">value=</span><span style="color:#008000;background-color:#efefef;font-weight:bold;">"按钮传参" </span><span style="color:#660e7a;background-color:#efefef;font-weight:bold;">v-on</span><span style="color:#0000ff;background-color:#efefef;font-weight:bold;">:click=</span><span style="color:#008000;background-color:#efefef;font-weight:bold;">"shows('xmg123')"</span><span style="background-color:#efefef;">&gt;</span><br/>
+<span style="color:#15820a;font-style:italic;">&lt;!--v-on可以简写为@click--&gt;<br/></span><span style="background-color:#efefef;">&lt;</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">input </span><span style="color:#0000ff;background-color:#efefef;font-weight:bold;">type=</span><span style="color:#008000;background-color:#efefef;font-weight:bold;">"button" </span><span style="color:#0000ff;background-color:#efefef;font-weight:bold;">value=</span><span style="color:#008000;background-color:#efefef;font-weight:bold;">"简写" </span><span style="color:#0000ff;background-color:#efefef;font-weight:bold;">@click=</span><span style="color:#008000;background-color:#efefef;font-weight:bold;">"shows('xmg123')"</span><span style="background-color:#efefef;">&gt;</span></div>
+<div><br/></div>
+<div style="background-color:#ffffff;color:#000000;font-family:'Menlo';font-size:12.0pt;">    <span style="color:#000080;font-weight:bold;">new </span>Vue({<br/>
+        <span style="color:#660e7a;font-weight:bold;">el</span>:<span style="color:#008000;font-weight:bold;">'body'</span>,<br/>
+        <span style="color:#660e7a;font-weight:bold;">data</span>:{<br/>
+            <span style="color:#660e7a;font-weight:bold;">msg</span>:<span style="color:#008000;font-weight:bold;">"xmg"<br/></span><span style="color:#008000;font-weight:bold;">       </span> },<br/>
+        <span style="color:#15820a;font-style:italic;">/*所有的事件都定义在method方法当中<br/></span><span style="color:#15820a;font-style:italic;">        * 在method中可以通过this来获取模型当中的内容<br/></span><span style="color:#15820a;font-style:italic;">        * */<br/></span><span style="color:#15820a;font-style:italic;">       </span> <span style="color:#660e7a;font-weight:bold;">methods</span>:{<br/>
+            <span style="color:#7a7a43;">show</span>:<span style="color:#000080;font-weight:bold;">function </span>() {<br/>
+                <span style="color:#7a7a43;">alert</span>(<span style="color:#000080;font-weight:bold;">this</span>.<span style="color:#660e7a;font-weight:bold;">msg</span>);<br/>
+            },<br/>
+            <span style="color:#7a7a43;">shows</span>:<span style="color:#000080;font-weight:bold;">function </span>(arg) {<br/>
+                <span style="color:#7a7a43;">alert</span>(arg);<br/>
+            }<br/>
+        }<br/>
+<br/>
+    });</div>
+<div><br/></div>
+<div style="background-color:#ffffff;color:#000000;font-family:'Menlo';font-size:12.0pt;"><br/>
+<br/>
+<span style="background-color:#efefef;">&lt;/</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">html</span><span style="background-color:#efefef;">&gt;</span><br/></div>
+</body></html>

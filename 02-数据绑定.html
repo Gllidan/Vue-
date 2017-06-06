@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="exporter-version" content="Evernote Mac 6.3 (452832)"/><meta name="author" content="高新强"/><meta name="created" content="2017-04-09 04:49:31 +0000"/><meta name="source" content="desktop.mac"/><meta name="updated" content="2017-04-09 04:50:10 +0000"/><title>02-数据绑定</title></head><body>
+<div><span style="font-size: 12pt;"><span style="font-family: Menlo;"><span style="background-color:#efefef;">&lt;</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">input </span><span style="color:#0000ff;background-color:#efefef;font-weight:bold;">type=</span><span style="color:#008000;background-color:#efefef;font-weight:bold;">"text" </span><span style="color:#0000ff;background-color:#efefef;font-weight:bold;">v-model=</span><span style="color:#008000;background-color:#efefef;font-weight:bold;">"msg"</span><span style="background-color:#efefef;">&gt;</span></span></span></div>
+<div style="background-color:#ffffff;color:#000000;font-family:'Menlo';font-size:12.0pt;"><span style="background-color:#efefef;">&lt;</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">p</span><span style="background-color:#efefef;">&gt;</span>{{msg}}<span style="background-color:#efefef;">&lt;/</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">p</span><span style="background-color:#efefef;">&gt;</span><br/>
+<span style="color:#15820a;font-style:italic;">&lt;!--只解析一次, 下次数据变了, 不会再去更改--&gt;<br/></span><span style="background-color:#efefef;">&lt;</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">p</span><span style="background-color:#efefef;">&gt;</span>{{*msg}}<span style="background-color:#efefef;">&lt;/</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">p</span><span style="background-color:#efefef;">&gt;</span></div>
+<div><span style="font-size: 12pt;"><span style="font-family: Menlo;"><br/></span></span></div>
+<div><br/></div>
+<div style="background-color:#ffffff;color:#000000;font-family:'Menlo';font-size:12.0pt;">    <span style="color:#000080;font-weight:bold;">new </span>Vue({<br/>
+       <span style="color:#660e7a;font-weight:bold;">el</span>:<span style="color:#008000;font-weight:bold;">'body'</span>,<br/>
+        <span style="color:#660e7a;font-weight:bold;">data</span>:{<br/>
+           <span style="color:#660e7a;font-weight:bold;">msg</span>:<span style="color:#008000;font-weight:bold;">'xmg'<br/></span><span style="color:#008000;font-weight:bold;">       </span> }<br/>
+    });</div>
+<div><br/></div>
+</body></html>

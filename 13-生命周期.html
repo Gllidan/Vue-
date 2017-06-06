@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="exporter-version" content="Evernote Mac 6.3 (452832)"/><meta name="author" content="高新强"/><meta name="created" content="2017-04-09 04:57:42 +0000"/><meta name="source" content="desktop.mac"/><meta name="updated" content="2017-04-09 04:58:00 +0000"/><title>13-生命周期</title></head><body>
+<div>
+<div style="background-color:#ffffff;color:#000000;font-family:'Menlo';font-size:12.0pt;"><span style="background-color:#efefef;">&lt;</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">script</span><span style="background-color:#efefef;">&gt;</span><br/>
+<br/>
+    <span style="color:#660e7a;font-weight:bold;">window</span>.<span style="color:#7a7a43;">onload </span>= <span style="color:#000080;font-weight:bold;">function </span>() {<br/>
+<br/>
+        <span style="color:#000080;font-weight:bold;">var </span><span style="color:#458383;">vm</span>=<span style="color:#000080;font-weight:bold;">new </span>Vue({<br/>
+            <span style="color:#660e7a;font-weight:bold;">el</span>:<span style="color:#008000;font-weight:bold;">'body'</span>,<br/>
+            <span style="color:#660e7a;font-weight:bold;">data</span>:{<br/>
+                <span style="color:#660e7a;font-weight:bold;">msg</span>:<span style="color:#008000;font-weight:bold;">'well'<br/></span><span style="color:#008000;font-weight:bold;">           </span> },<br/>
+<br/>
+            <span style="color:#7a7a43;">created</span>:<span style="color:#000080;font-weight:bold;">function</span>(){<br/>
+                <span style="color:#7a7a43;">alert</span>(<span style="color:#008000;font-weight:bold;">'实例已经创建'</span>);<br/>
+            },<br/>
+            <span style="color:#7a7a43;">beforeCompile</span>:<span style="color:#000080;font-weight:bold;">function</span>(){<br/>
+                <span style="color:#7a7a43;">alert</span>(<span style="color:#008000;font-weight:bold;">'编译之前'</span>);<br/>
+            },<br/>
+            <span style="color:#7a7a43;">compiled</span>:<span style="color:#000080;font-weight:bold;">function</span>(){<br/>
+                <span style="color:#7a7a43;">alert</span>(<span style="color:#008000;font-weight:bold;">'编译之后'</span>);<br/>
+            },<br/>
+            <span style="color:#7a7a43;">ready</span>:<span style="color:#000080;font-weight:bold;">function</span>(){<br/>
+                <span style="color:#7a7a43;">alert</span>(<span style="color:#008000;font-weight:bold;">'插入到文档中'</span>);<br/>
+            },<br/>
+            <span style="color:#7a7a43;">beforeDestroy</span>:<span style="color:#000080;font-weight:bold;">function</span>(){<br/>
+                <span style="color:#7a7a43;">alert</span>(<span style="color:#008000;font-weight:bold;">'销毁之前'</span>);<br/>
+            },<br/>
+            <span style="color:#7a7a43;">destroyed</span>:<span style="color:#000080;font-weight:bold;">function</span>(){<br/>
+                <span style="color:#7a7a43;">alert</span>(<span style="color:#008000;font-weight:bold;">'销毁之后'</span>);<br/>
+            }<br/>
+        });<br/>
+<br/>
+        <span style="color:#15820a;font-style:italic;">/*点击页面销毁vue对象*/<br/></span><span style="color:#15820a;font-style:italic;">       </span> <span style="color:#458383;">document</span>.<span style="color:#7a7a43;">onclick</span>=<span style="color:#000080;font-weight:bold;">function</span>(){<br/>
+            <span style="color:#458383;">vm</span>.<span style="color:#7a7a43;">$destroy</span>();<br/>
+        };<br/>
+    }<br/>
+<br/>
+<span style="background-color:#efefef;">&lt;/</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">script</span><span style="background-color:#efefef;">&gt;</span><br/></div>
+</div>
+</body></html>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="exporter-version" content="Evernote Mac 6.3 (452832)"/><meta name="author" content="高新强"/><meta name="created" content="2017-04-09 04:52:49 +0000"/><meta name="source" content="desktop.mac"/><meta name="updated" content="2017-04-09 04:53:17 +0000"/><title>06-添加用户</title></head><body>
+<div>
+<div style="background-color:#ffffff;color:#000000;font-family:'Menlo';font-size:12.0pt;"><span style="background-color:#efefef;">&lt;</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">script</span><span style="background-color:#efefef;">&gt;</span><br/>
+    <span style="color:#660e7a;font-weight:bold;">window</span>.<span style="color:#7a7a43;">onload </span>= <span style="color:#000080;font-weight:bold;">function </span>() {<br/>
+<br/>
+        <span style="color:#000080;font-weight:bold;">new </span>Vue({<br/>
+<br/>
+            <span style="color:#660e7a;font-weight:bold;">el</span>:<span style="color:#008000;font-weight:bold;">'body'</span>,<br/>
+            <span style="color:#660e7a;font-weight:bold;">data</span>:{<br/>
+                <span style="color:#660e7a;font-weight:bold;">myData</span>:[],<br/>
+                <span style="color:#660e7a;font-weight:bold;">username</span>:<span style="color:#008000;font-weight:bold;">''</span>,<br/>
+                <span style="color:#660e7a;font-weight:bold;">age</span>:<span style="color:#008000;font-weight:bold;">''</span>,<br/>
+                <span style="color:#660e7a;font-weight:bold;">deleteTitle</span>:<span style="color:#008000;font-weight:bold;">'确认删除该条信息嘛'</span>,<br/>
+                <span style="color:#660e7a;font-weight:bold;">newIndex</span>:-<span style="color:#0000ff;">1<br/></span><span style="color:#0000ff;">           </span> },<br/>
+            <span style="color:#660e7a;font-weight:bold;">methods</span>:{<br/>
+<br/>
+                <span style="color:#7a7a43;">add</span>:<span style="color:#000080;font-weight:bold;">function </span>() {<br/>
+                    <span style="color:#000080;font-weight:bold;">var </span><span style="color:#458383;">user </span>= {<br/>
+                        <span style="color:#660e7a;font-weight:bold;">userName</span>:<span style="color:#000080;font-weight:bold;">this</span>.<span style="color:#660e7a;font-weight:bold;">username</span>,<br/>
+                        <span style="color:#660e7a;font-weight:bold;">age</span>:<span style="color:#000080;font-weight:bold;">this</span>.<span style="color:#660e7a;font-weight:bold;">age<br/></span><span style="color:#660e7a;font-weight:bold;">                   </span> }<br/>
+                    <span style="color:#000080;font-weight:bold;">this</span>.<span style="color:#660e7a;font-weight:bold;">myData</span>.<span style="color:#7a7a43;">push</span>(<span style="color:#458383;">user</span>);<br/>
+                    <span style="color:#000080;font-weight:bold;">this</span>.<span style="color:#7a7a43;">reset</span>();<br/>
+                },<br/>
+                <span style="color:#7a7a43;">reset</span>:<span style="color:#000080;font-weight:bold;">function </span>() {<br/>
+                    <span style="color:#000080;font-weight:bold;">this</span>.<span style="color:#660e7a;font-weight:bold;">username </span>= <span style="color:#008000;font-weight:bold;">''</span>;<br/>
+                    <span style="color:#000080;font-weight:bold;">this</span>.<span style="color:#660e7a;font-weight:bold;">age </span>= <span style="color:#008000;font-weight:bold;">''</span>;<br/>
+                },<br/>
+                <span style="color:#7a7a43;">delete</span>:<span style="color:#000080;font-weight:bold;">function </span>() {<br/>
+<br/>
+                    <span style="color:#000080;font-weight:bold;">if </span>(<span style="color:#000080;font-weight:bold;">this</span>.<span style="color:#660e7a;font-weight:bold;">newIndex </span>== -<span style="color:#0000ff;">2</span>){<br/>
+                        <span style="color:#000080;font-weight:bold;">this</span>.<span style="color:#660e7a;font-weight:bold;">myData </span>= [];<br/>
+                    }<span style="color:#000080;font-weight:bold;">else </span>{<br/>
+                        <span style="color:#000080;font-weight:bold;">this</span>.<span style="color:#660e7a;font-weight:bold;">myData</span>.<span style="color:#7a7a43;">splice</span>(<span style="color:#000080;font-weight:bold;">this</span>.<span style="color:#660e7a;font-weight:bold;">newIndex</span>,<span style="color:#0000ff;">1</span>);<br/>
+                    }<br/>
+<br/>
+                },<br/>
+<br/>
+                <span style="color:#7a7a43;">deleteAll</span>:<span style="color:#000080;font-weight:bold;">function </span>() {<br/>
+                    <span style="color:#000080;font-weight:bold;">this</span>.<span style="color:#660e7a;font-weight:bold;">newIndex </span>= -<span style="color:#0000ff;">2</span>;<br/>
+                    <span style="color:#000080;font-weight:bold;">this</span>.<span style="color:#660e7a;font-weight:bold;">deleteTitle </span>= <span style="color:#008000;font-weight:bold;">"确认删除全部嘛?"</span>;<br/>
+                }<br/>
+<br/>
+<br/>
+            }<br/>
+<br/>
+        });<br/>
+<br/>
+<br/>
+    };<br/>
+<span style="background-color:#efefef;">&lt;/</span><span style="color:#000080;background-color:#efefef;font-weight:bold;">script</span><span style="background-color:#efefef;">&gt;</span><br/></div>
+</div>
+</body></html>
