@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="animate.css">
+    <style>
+
+        #app h1{
+            width:  300px;
+            height: 40px;
+            background: red;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <button @click="divClick()">切换</button>
+    <div v-for="item in lists">
+        <h1 ref="oLi" class="animated">{{item.name}}</h1>
+    </div>
+</div>
+
+<script src="vue2.0.js"></script>
+<script>
+    new Vue ({
+    	el: '#app',
+    	data(){
+    		return{
+    			lists: [{name: 1},{name: 2},{name: 3},{name: 4}],
+            }
+        },
+        methods: {
+    	    divClick () {
+				var lis = this.$refs.oLi;
+				// 遍历节点
+				for(var i = 0,leng = lis.length; i<leng; i++){
+					// 设置animated的动画延迟时间
+					lis[i].style.animationDuration = (400+i*300) +'ms';
+					//  设置移出动画
+					lis[i].setAttribute('class','animated fadeOutRight');
+					// 利用定时器来实现多重动画
+					setTimeout(function () {
+						for(var i = 0,leng= lis.length; i<leng; i++){
+							// 设置移入动画
+							lis[i].setAttribute('class','animated fadeInRight');
+                        }
+					},1000)
+				}
+
+			},
+            // 设置通过给生命周期执行初始动画的方法
+            load () {
+				var lis = this.$refs.oLi;
+				// 遍历添加初始动画类
+				for (var i = 0,leng = lis.length ; i<leng ; i++){
+					// 添加移入动画
+					lis[i].setAttribute('class','animated fadeInRight');
+					lis[i].style.animationDuration = (400+i*300) + 'ms';
+				}
+            }
+        },
+        created () {
+    		// 记得用$nextTick手动加载节点
+			this.$nextTick(() => {
+				this.load();
+            })
+        }
+
+    })
+</script>
+</body>
+</html>

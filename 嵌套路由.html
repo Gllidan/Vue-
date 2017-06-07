@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="animate.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .allBox {
+            width: 100%;
+            height: 100%;
+            background: skyblue;
+            margin: 0 auto;
+        }
+        .tab {
+            width: 300px;
+            heihgt: 50px;
+            background: palegoldenrod;
+            display: flex;
+            padding: 0;
+            margin: 0;
+        }
+        .tab li {
+            border: 1px solid #cbcc51;
+            flex: 1;
+            text-align: center;
+            list-style: none;
+        }
+
+        .templist .temp {
+            width: 100%;
+            height: 40px;
+            border: 1px solid #ccc;
+            background: pink;
+            list-style: none;
+            border: 1px solid #ccc;
+        }
+        .box {
+            width: 100%;
+            height: 100%;
+            background: #a4cfff;
+        }
+        .bigBox {
+            width: 100%;
+            height: 100%;
+            background: #daffff;
+            /* flex布局*/
+            display: flex;
+        }
+        .templist {
+            /*左边盒子固定宽度,右边响应式*/
+            flex: 0 0 80;
+            width: 80px;
+            height:100%;
+            background: papayawhip;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<div id="app" class="allBox">
+    <ul class="tab">
+        <li><router-link to="/home">{{ first }}</router-link></li>
+        <li><router-link to="/music">{{ music }}</router-link></li>
+        <li><router-link to="/movie">{{ movie }}</router-link></li>
+    </ul>
+    <div class="box">
+        <router-view></router-view>
+    </div>
+</div>
+<script src="vue2.0.js"></script>
+<script src="vue-router2.0.js"></script>
+<script>
+    // 设置插入模板
+    //  注意单词不要拼错，不会报错
+    const homes = {template: `<h1>我是首页</h1>`};
+    const musics = {template: `
+<div class="bigBox">
+<ul class="templist">
+       <li class="temp"><router-link to="1" @click="listClick()">1</router-link></li>
+       <li class="temp"><router-link to="2">2</router-link></li>
+       <li class="temp"><router-link to="3">3</router-link></li>
+       <li class="temp"><router-link to="3">4</router-link></li>
+       <li class="temp"><router-link to="3">5</router-link></li>
+</ul>
+<div class="rightBox">
+<router-view></router-view>
+</div>
+</div>
+`}
+
+    const movies = {template: '<h1>我是电影</h1>'}
+    const listOne = {template: '<h1 class="animated fadeInRight">我是列表1</h1>'}
+    const listTwo = {template: '<h1>我是列表2</h1>'}
+    const listThree = {template: '<h1>我是列表3</h1>'}
+
+
+	//设置路由
+	const routes = [{path: '/', redirect: '/home' },
+		{path: '/home',component: homes},
+		{
+			path: '/music',component: musics,
+			// 设置子路由
+			children:[
+				// 路由配置
+				{path:'/', redirect:'/1'},
+				{path: '/1',component: listOne},
+				{path: '/2',component: listTwo},
+				{path: '/3',component: listThree}
+			]
+		},
+		{path:'/movie',component: movies}]
+	// 创建路由并引入配置
+	const VRouter = new VueRouter ({routes});
+    //vue实例配置
+	new Vue({
+		el: '#app',
+		router: VRouter,
+		data () {
+			return {
+				first: '首页',
+				music: '音乐',
+				movie: '电影'
+			}
+		},
+		methods: {
+			listClick () {
+				this.$router.go(0);
+				alert(1)
+			}
+		}
+
+	})
+
+</script>
+</body>
+</html>
